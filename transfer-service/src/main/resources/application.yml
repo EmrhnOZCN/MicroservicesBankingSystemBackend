@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5438/transferdb
+    username: postgres
+    password: 12345
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true
+    contexts: dev
+    change-log: "db.changelog/create-table-transfers.xml"
+
+# Sunucu portunu otomatik olarak ayarla
+server:
+  port: 9065
+
+  # Uygulamanın adı
+
+  application:
+    name: transfer-service
+
+# Eureka istemcisi ayarları
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}

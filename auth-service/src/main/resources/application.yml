@@ -1,0 +1,15 @@
+jwt:
+  secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
+  expiration: 1800
+
+
+
+
+
+spring:
+ kafka:
+    producer:
+      bootstrap-servers: localhost:29092  # Kafka bootstrap server
+      properties:
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer  # Key serializer
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer  # Value serializer

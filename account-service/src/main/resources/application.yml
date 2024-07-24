@@ -1,0 +1,46 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5438/accountdb
+    username: postgres
+    password: 12345
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true
+    contexts: dev
+    change-log: "./db.changelog/create-table-account.xml"
+
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:29092  # Kafka bootstrap server
+      properties:
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer  # Key serializer
+        value.serializer: org.apache.kafka.common.serialization.StringSerializer  # Value serializer
+    consumer:
+      bootstrap-servers: localhost:29092
+      group-id: job-service-group
+      auto-offset-reset: earliest
+      properties:
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Key deserializer
+        value.deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Value deserializer
+
+server:
+  port: 9020
+
+
+
+  application:
+    name: account-service
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}

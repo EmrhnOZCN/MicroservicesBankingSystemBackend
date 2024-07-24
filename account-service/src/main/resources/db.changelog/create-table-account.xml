@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <changeSet id="1" author="emirhanözcan">
+        <createTable tableName="accounts">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="customer_id" type="uuid" />
+            <column name="account_number" type="varchar(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="balance" type="decimal(10,2)" defaultValue="0.0" />
+            <column name="account_type" type="varchar(255)" />
+            <column name="created_at" type="timestamp" defaultValueComputed="CURRENT_TIMESTAMP" />
+            <column name="updated_at" type="timestamp" />
+            <column name="currency" type="varchar(255)" />
+            <column name="is_active" type="boolean" defaultValue="true"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

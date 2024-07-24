@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DiffGenerationConfig">
+    <option name="updateChangeLogPath" value="account-service/src/main/resources/db.changelog/create-table-account.xml" />
+    <option name="updateDbConnectionName" value="32d6a2df-ebc4-4d2c-a43c-32f222d66c31" />
+  </component>
+</project>
